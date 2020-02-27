@@ -1,5 +1,5 @@
 **Ausgangslage**  
-Die Web-App soll für den Operations Research Unterricht an der FHS St.Gallen als anschauliches und interaktives Beispiel der Travelling-Salesman-Aufgabe dienen. Des Weiteren soll die Web-App so weit ausgeklügelt sein, dass sie auf der Website des Instituts für Modellbildung und Simulation eingebettet werden kann.
+Die Web-App soll für den Operations Research Unterricht an der FHS St.Gallen als anschauliches und interaktives Beispiel der Travelling-Salesman-Aufgabe dienen. Des Weiteren soll die Web-App so weit ausgeklügelt sein, dass sie auf der Website des Instituts für Modellbildung und Simulation eingebettet werden kann.  
 Die Travelling-Salesman Aufgabe besteht darin, eine Reihenfolge für den Besuch mehrerer Orte so zu wählen, dass keine Station ausser der ersten mehr als einmal besucht wird, die gesamte Reisestrecke des Handlungsreisenden möglichst kurz und die erste Station gleich der letzten Station ist.
 
 **Funktion/Projektidee**   
