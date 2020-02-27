@@ -12,5 +12,6 @@ Die Dateneingabe erfolgt durch den User, in dem er eine Route auf der Landkarte 
 **Datenverarbeitung/Speicherung**  
 Mittels einer Distanzmatrix wird die Länge der eingegeben Route und der optimalen Route berechnet. Die Abweichung zwischen der optimalen und eingegeben Route wird auch berechnet und abgespeichert. Sie dient als Grundlage für die Erstellung des Ranking.  
 **Datenausgabe**  	  
-Als Output erscheint die Länge der eingegeben Route, die optimale Route, die Abweichung sowie das Ranking.  
+Als Output erscheint die Länge der eingegeben Route, die optimale Route, die Abweichung sowie das Ranking.    
+
 **Projektteam:** Flurin Böni, Vanessa Toscan
