@@ -15,3 +15,6 @@ Mittels einer Distanzmatrix wird die Länge der eingegeben Route und der optimal
 Als Output erscheint die Länge der eingegeben Route, die optimale Route, die Abweichung sowie das Ranking.    
 
 **Projektteam:** Flurin Böni, Vanessa Toscan
+
+![Alt-Text](Web-App Szenario.drawio "optionaler Titel")
+
