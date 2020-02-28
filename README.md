@@ -16,6 +16,6 @@ Als Output erscheint die Länge der eingegeben Route, die optimale Route, die Ab
 
 **Projektteam:** Flurin Böni, Vanessa Toscan
 
-![Alt-Text](Web-App Szenario.jpg "optionaler Titel")
+![Alt-Text](Szenario.jpg "optionaler Titel")
 
 
