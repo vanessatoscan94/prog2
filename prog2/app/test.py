@@ -8,7 +8,7 @@ def begruessung(name=False):
     if name:
          return "Hallo " + name + "!"
     else:
-        return "Not Hallo World again…"
+        return "Notnot Hallo World again…"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
