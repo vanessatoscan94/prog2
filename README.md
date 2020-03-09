@@ -16,12 +16,13 @@ Als Output erscheint die Länge der eingegeben Route und das Ranking.
 
 **Projektteam:** Flurin Böni, Vanessa Toscan
 
-![Alt-Text](Szenario.jpg "optionaler Titel")    
+![Alt-Text](Szenario.jpg "optionaler Titel")      
+**Mockup**  
 ![Alt-Text](Mockup.png "optionaler Titel")   
 
 
 
-**Beispiel Aufgabenstellung**  
+**Beispiel Aufgabenstellung:**  
 Verbinden Sie Chur, St.Gallen, Bern und Zürich in einer Reihenfolge, damit eine möglichst kurze Strecke rauskommt. Der Start und das Ende ist in Chur.    
 ![Alt-Text](Aufgabe1.png "optionaler Titel")  
 
@@ -31,7 +32,8 @@ User 1 gibt folgendes ein:
 2. SG nach Zürich → 85 km  
 3. Zürich nach Bern → 122 km  
 4. Bern nach Chur → 244 km  
-Gesamthaft: 543 km  
+
+Gesamthaft: **543 km**    
 Distanzen von http://kantone-staedte.infos-schweiz.ch/distanztabelle-schweizer-staedte.html    
 
 ![Alt-Text](Aufgabe2.png "optionaler Titel")  
@@ -41,7 +43,8 @@ User 2 gibt folgendes ein:
 2. Bern nach SG → 160 km  
 3. SG nach Zürich → 85 km  
 4. Zürich nach Chur → 122 km  
-Gesamthaft: 611 km  
+
+Gesamthaft: **611 km**    
 Distanzen von http://kantone-staedte.infos-schweiz.ch/distanztabelle-schweizer-staedte.html  
 
 **Ranking:**  
