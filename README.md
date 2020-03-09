@@ -8,16 +8,20 @@ Der User kann aus einer Dropdown-Liste eine Aufgabe auswählen. Beispielsweise: 
 
 **Workflow**  
 **Dateneingabe**  
-Die Dateneingabe erfolgt durch den User, in dem er eine Route auf der Landkarte einzeichnet. 
+Die Dateneingabe erfolgt durch den User, in dem er eine Route auf der Landkarte einzeichnet.   
+
 **Datenverarbeitung/Speicherung**  
-Mittels einer Distanzmatrix wird die Länge der eingegeben Route berechnet. Es sollen zwei verschiedene Routenberechnungen auswählbar sein. Eine die, die Strecke anhand von der Luftlinie berechnet und eine, die bspw. die LKW-Fahrzeit berechnet. Für das werden zwei verschiedene Distanzmatrizen verwendet.  
+Mittels einer Distanzmatrix wird die Länge der eingegeben Route berechnet. Es sollen zwei verschiedene Routenberechnungen auswählbar sein. Eine die, die Strecke anhand von der Luftlinie berechnet und eine, die bspw. die LKW-Fahrzeit berechnet. Für das werden zwei verschiedene Distanzmatrizen verwendet.    
+
 **Datenausgabe**  	  
 Als Output erscheint die Länge der eingegeben Route und das Ranking.    
 
 **Projektteam:** Flurin Böni, Vanessa Toscan
 
 ![Alt-Text](Szenario.jpg "optionaler Titel")      
-**Mockup**  
+
+
+**Mockup:**  
 ![Alt-Text](Mockup.png "optionaler Titel")   
 
 
