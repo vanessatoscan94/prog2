@@ -14,17 +14,16 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     folium_map = folium.Map(
-        location=[46.940700, 7.783290], 
-        tiles='Stamen Toner',
-        zoom_start=8
+        location=[46.8667, 8.2333], 
+        width=500, 
+        height=500,
+        zoom_start=6,
+        tiles= "http://tile.stamen.com/toner/{z}/{x}/{y}.png", 
+        attr="toner-bcg"
         )
 
 
    
-    folium_map = folium.Map(
-        location=[46.940700, 7.783290], 
-        zoom_start=8
-        )
     chur = folium.Marker(
         location=[46.849491, 9.530670],
         tooltip ='<strong> Chur </strong>',
