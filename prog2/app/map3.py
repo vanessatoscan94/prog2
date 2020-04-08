@@ -14,15 +14,17 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     folium_map = folium.Map(
-        location=[46.8667, 8.2333], 
+        location=[46.8667, 8.2333],
         width=500, 
         height=500,
         zoom_start=6,
         tiles= "http://tile.stamen.com/toner/{z}/{x}/{y}.png", 
-        attr="toner-bcg"
+        attr="toner-bcg",
+        
+
         )
 
-
+    
    
     chur = folium.Marker(
         location=[46.849491, 9.530670],
@@ -40,10 +42,16 @@ def index():
 
     zurich = folium.Marker(
         location=[47.368650, 8.539183],
-        tooltip ='Zurich',
-        popup='Zurich'
+        tooltip ='Zurich', 
+        popup=folium.Popup("<strong>Zurich</strong>", show=True, sticky=True)
+        
+
+
 
         ).add_to(folium_map)
+
+    
+    
 
 # Adds tool to the top right
     
