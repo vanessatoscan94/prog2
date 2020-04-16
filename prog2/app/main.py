@@ -58,7 +58,7 @@ def kilometer_speichern():
         kilometer = request.form['kilometer']
         nachname = request.form['nachname']
         nachname, kilometer, zeitpunkt = daten.kilometer_speichern(kilometer, nachname)
-        rueckgabe_string = "Gespeichert: " + nachname + kilometer + " um " + str(zeitpunkt)
+        rueckgabe_string = "Gespeichert: " + nachname + " " +  kilometer + " um " + str(zeitpunkt)
         return rueckgabe_string
 
     return render_template("form.html")
@@ -70,7 +70,7 @@ def auflisten():
 
     kilometer_liste = ""
     for key, value in kilometer.items():
-        zeile = str(key) + ": " + value + "<br>"
+        zeile = str(key) + ":"  + value + "<br>"
         kilometer_liste += zeile
 
     return kilometer_liste
