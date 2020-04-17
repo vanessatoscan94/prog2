@@ -36,10 +36,7 @@ def index():
     for i in range(0,len(data)):
           folium.Marker([data.iloc[i]['lat'], data.iloc[i]['lon']], popup=folium.Popup(data.iloc[i]['name'], show=True, sticky=True), tooltip =data.iloc[i]["name"]) .add_to(folium_map)
           
-    
-
-    
-    
+  
 
 # Adds tool to the top right
     
@@ -50,7 +47,16 @@ def index():
     url = ('https://media.licdn.com/mpr/mpr/shrinknp_100_100/AAEAAQAAAAAAAAlgAAAAJGE3OTA4YTdlLTkzZjUtNDFjYy1iZThlLWQ5OTNkYzlhNzM4OQ.jpg')
     FloatImage(url, bottom=5, left=85).add_to(folium_map)
 
-    return folium_map._repr_html_()
+    
+    folium_map.save('templates/map.html')
+    return render_template('start.html')
+
+
+@app.route('/map')
+def map():
+    return render_template('map.html')
+
+    #ab hier Code zum Formular
 
 @app.route("/speichern/", methods=['GET', 'POST'])
 def kilometer_speichern():
@@ -61,7 +67,7 @@ def kilometer_speichern():
         rueckgabe_string = "Gespeichert: " + nachname + " " +  kilometer + " um " + str(zeitpunkt)
         return rueckgabe_string
 
-    return render_template("form.html")
+    return render_template("start.html")
 
 
 @app.route("/liste") # noch falsch --> for schleife anpassen
