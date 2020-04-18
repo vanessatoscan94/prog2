@@ -70,7 +70,7 @@ def kilometer_speichern():
     return render_template("start.html")
 
 
-@app.route("/liste") # noch falsch --> for schleife anpassen
+@app.route("/liste") # Zeigt nur Name und Kilometer an
 def auflisten():
     kilometer = daten.kilometer_laden()
 
@@ -78,10 +78,23 @@ def auflisten():
     for key, value in kilometer.items():
         zeile = str(key) + ":"  + value + "<br>"
         kilometer_liste += zeile
+   
 
-    return kilometer_liste
+    return kilometer_liste 
 
 
+@app.route('/test')
+def te():
+    kilometer = daten.kilometer_laden()
+
+    kilometer_liste = ""
+    for key, value in kilometer.items():
+        zeile = str(key) + ":"  + value + "<br>"
+        kilometer_liste += zeile
+   
+    ranking_var=kilometer_liste
+    return render_template("ranking.html", ranking_var=ranking_var)
+    
 
 
 if __name__ == "__main__":
