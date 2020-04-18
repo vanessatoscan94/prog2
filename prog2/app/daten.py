@@ -9,7 +9,7 @@ def speichern(datei, key, value, nachname):
     except FileNotFoundError:
         datei_inhalt = {}
 
-    datei_inhalt[str(key) + nachname] = value
+    datei_inhalt[value] = nachname  # wenn  datei_inhalt[str(key) + nachname] = value --> dann wird auch das Datum angezeigt
 
 
 
@@ -38,3 +38,11 @@ def kilometer_laden():
     return datei_inhalt
 
 
+
+
+
+
+    # print(datei_inhalt)
+
+    with open(datei, "w") as open_file:
+        json.dump(datei_inhalt, open_file)
