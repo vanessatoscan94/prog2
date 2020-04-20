@@ -43,9 +43,20 @@
         </div>
     </div>
 
+<div>
 
-     <div class="creators_note" style="font-size:20px;margin-left:10px;width:65%;">
-    <a>{{ranking_var}}</a>
+<a><table class="centered thick-border">
+        <tr>
+                <th>Name</th>
+                <th>Anzahl Kilometer</th>
+        </tr>
+        {% for k, v in kilometer.items() %}
+                <tr>
+                        <td>{{ k }}</td>
+                        <td>{{ v }}</td>
+                </tr>
+        {% endfor %}
+</table></a>
 
     </div>
                     
