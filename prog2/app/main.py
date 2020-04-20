@@ -91,9 +91,19 @@ def te():
     for key, value in kilometer.items():
         zeile = str(key) + ":"  + value + "<br>"
         kilometer_liste += zeile
-   
+
     ranking_var=kilometer_liste
-    return render_template("ranking.html", ranking_var=ranking_var)
+
+    
+
+
+    return render_template("ranking.html", len = len(kilometer_liste), ranking_var=ranking_var)
+   
+    
+@app.route('/bla') #gibt tabelle raus
+def blabla():
+    kilometer = daten.kilometer_laden()
+    return render_template("ranking.html", kilometer = kilometer)
     
 
 
