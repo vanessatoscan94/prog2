@@ -43,6 +43,7 @@
         </div>
     </div>
 
+
 <div>
 
 <a><table class="centered thick-border">
@@ -50,16 +51,25 @@
                 <th>Name</th>
                 <th>Anzahl Kilometer</th>
         </tr>
-        {% for k, v in kilometer.items() %}
-                <tr>
-                        <td>{{ k }}</td>
-                        <td>{{ v }}</td>
-                </tr>
-        {% endfor %}
-</table></a>
+        {% for k, v in kilometer | dictsort%}
 
+           
+
+             <tr>
+                      <td>{{ v }}</td>
+                      <td>{{ k }}</td>
+                     
+
+            </tr>
+
+        {% endfor %}
+</table>
+</a>
     </div>
-                    
+            
+    
+
+
 </body>
     
 </html>
