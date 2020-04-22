@@ -7,7 +7,8 @@ import daten
 from folium import plugins
 from folium.plugins import MeasureControl
 from folium.plugins import FloatImage
-
+from natsort import natsorted, ns
+from operator import attrgetter
 
 
 
@@ -103,8 +104,15 @@ def te():
 @app.route('/bla') #gibt tabelle raus
 def blabla():
     kilometer = daten.kilometer_laden()
-    return render_template("ranking.html", kilometer = kilometer)
     
+    
+    return render_template("test.html", kilometer = kilometer)
+
+def natsort(val, key, reverse=False, ignore_case=True): #geht nicht
+  alg = ns.IGNORECASE
+    if not ignore_case:
+        alg = ns.LOWERCASEFIRST
+    return natsorted(val, key=attrgetter(key), reverse=reverse, alg=alg)
 
 
 if __name__ == "__main__":
