@@ -9,7 +9,7 @@ def speichern(datei, key, value, nachname):
     except FileNotFoundError:
         datei_inhalt = {}
 
-    datei_inhalt[value] = nachname  # wenn  datei_inhalt[str(key) + nachname] = value --> dann wird auch das Datum angezeigt
+    datei_inhalt[nachname] = value  # wenn  datei_inhalt[str(key) + nachname] = value --> dann wird auch das Datum angezeigt
 
 
 
