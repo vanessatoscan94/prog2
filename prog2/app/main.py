@@ -71,7 +71,7 @@ def kilometer_speichern():
     return render_template("start.html")
 
 
-@app.route("/liste") # Zeigt nur Name und Kilometer an
+@app.route("/liste") # Zeigt nur Name und Kilometer an. funktioniert nicht
 def auflisten():
     kilometer = daten.kilometer_laden()
 
@@ -84,35 +84,18 @@ def auflisten():
     return kilometer_liste 
 
 
-@app.route('/test')
-def te():
-    kilometer = daten.kilometer_laden()
-
-    kilometer_liste = ""
-    for key, value in kilometer.items():
-        zeile = str(key) + ":"  + value + "<br>"
-        kilometer_liste += zeile
-
-    ranking_var=kilometer_liste
-
-    
-
-
-    return render_template("ranking.html", len = len(kilometer_liste), ranking_var=ranking_var)
-   
     
 @app.route('/bla') #gibt tabelle raus
 def blabla():
     kilometer = daten.kilometer_laden()
-    
-    
-    return render_template("test.html", kilometer = kilometer)
+    sortiert=natsorted(kilometer.items())
+    nummeriert=enumerate(sortiert,start = 1)
 
-def natsort(val, key, reverse=False, ignore_case=True): #geht nicht
-  alg = ns.IGNORECASE
-    if not ignore_case:
-        alg = ns.LOWERCASEFIRST
-    return natsorted(val, key=attrgetter(key), reverse=reverse, alg=alg)
+    
+    
+    return render_template("ranking.html", nummeriert=nummeriert)
+
+
 
 
 if __name__ == "__main__":
