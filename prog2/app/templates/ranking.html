@@ -48,18 +48,17 @@
 
 <a><table class="centered thick-border">
         <tr>
+                
+                <th>Rang</th>
                 <th>Name</th>
-                <th>Anzahl Kilometer</th>
+                 <th>Anzahl Kilometer</th>
         </tr>
-        {% for k, v in kilometer | dictsort%}
+        {% for i, (n, p) in nummeriert%} <!--(n, p) bedeutet, dass enumerate durch keys and values<-->
 
-           
-
-             <tr>
-                      <td>{{ v }}</td>
-                      <td>{{ k }}</td>
-                     
-
+            <tr>
+                    <td>{{ i }}</td>
+                    <td>{{ p}}</td>
+                   <td>{{ n}}</td>
             </tr>
 
         {% endfor %}
