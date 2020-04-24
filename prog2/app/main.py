@@ -9,6 +9,12 @@ from folium.plugins import MeasureControl
 from folium.plugins import FloatImage
 from natsort import natsorted, ns
 from operator import attrgetter
+import numpy as np
+import matplotlib.pyplot as plt
+from plotly.offline import plot
+import plotly.graph_objects as go
+import plotly.express as px
+
 
 
 
@@ -21,10 +27,9 @@ def index():
     folium_map = folium.Map(
         location=[46.8667, 8.2333],
         zoom_start=8,
-        tiles= "http://tile.stamen.com/toner/{z}/{x}/{y}.png", 
-        attr="toner-bcg",
+        tiles= "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", 
+        attr="Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ",
         
-
         )
     data = pd.DataFrame({
               'lat':[47.390434, 47.330769, 47.385849, 47.486614, 47.559601, 46.947922, 46.806403, 46.20222, 47.04057, 46.84986, 47.36493, 47.05048, 46.99179, 46.95805, 46.89611, 47.42391, 47.69732, 47.02076, 47.20791, 47.55776, 46.19278, 46.88042, 46.22739, 46.51600, 47.17242, 47.36667],
@@ -96,6 +101,52 @@ def blabla():
     return render_template("ranking.html", nummeriert=nummeriert)
 
 
+
+
+def data():                                                          #Barchart von odoni
+    data = px.data.gapminder()
+    data_ch = data[data.country == 'Switzerland']
+
+    return data_ch
+
+
+def viz():
+    data_ch = data()
+
+    fig = px.bar(
+        data_ch,
+        x='year', y='pop',
+        hover_data=['lifeExp', 'gdpPercap'],
+        color='lifeExp',
+        labels={
+            'pop': 'Einwohner der Schweiz',
+            'year': 'Jahrzehnt'
+        },
+        height=400
+    )
+
+    div = plot(fig, output_type="div")
+    return div
+
+
+@app.route("/grafik")
+def test():
+    div = viz()
+    # return str([str(i) for i in data()])
+    return render_template('test.html', viz_div=div)
+    
+   
+
+@app.route("/barchart")
+def horizontal():
+    fig = go.Figure(go.Bar(
+            x=[20, 14, 23],
+            y=['giraffes', 'orangutans', 'monkeys'],
+            orientation='h'))
+    div = plot(fig, output_type="div")
+
+    # return str([str(i) for i in data()])
+    return render_template('test.html', horizontal_div=div)
 
 
 if __name__ == "__main__":
