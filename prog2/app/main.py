@@ -73,7 +73,7 @@ def kilometer_speichern():
         rueckgabe_string = "Gespeichert: " + nachname + " " +  kilometer + " um " + str(zeitpunkt)
         return rueckgabe_string
 
-    return render_template("start.html")
+    return render_template("start1.html")
 
 
 @app.route("/liste") # Zeigt nur Name und Kilometer an. funktioniert nicht
@@ -98,30 +98,29 @@ def blabla():
 
     
     
-    return render_template("ranking.html", nummeriert=nummeriert)
+    return render_template("ranking1.html", nummeriert=nummeriert)
 
 
 
+def data():   
+                                                     
+    data = daten.kilometer_laden()
+   
+    data_df = pd.DataFrame.from_dict(data, orient="index")
 
-def data():                                                          #Barchart von odoni
-    data = px.data.gapminder()
-    data_ch = data[data.country == 'Switzerland']
+   
 
-    return data_ch
+    return data_df
 
 
 def viz():
-    data_ch = data()
+    data_df = data()
 
     fig = px.bar(
-        data_ch,
-        x='year', y='pop',
-        hover_data=['lifeExp', 'gdpPercap'],
-        color='lifeExp',
-        labels={
-            'pop': 'Einwohner der Schweiz',
-            'year': 'Jahrzehnt'
-        },
+        data_df,
+        x=data_df.index, y=data_df,
+        orientation='h',
+        
         height=400
     )
 
@@ -132,21 +131,56 @@ def viz():
 @app.route("/grafik")
 def test():
     div = viz()
-    # return str([str(i) for i in data()])
-    return render_template('test.html', viz_div=div)
-    
    
+    return render_template('test.html', viz_div=div)
+
+
+
 
 @app.route("/barchart")
 def horizontal():
     fig = go.Figure(go.Bar(
-            x=[20, 14, 23],
+            name=[20, 14, 23],
             y=['giraffes', 'orangutans', 'monkeys'],
             orientation='h'))
     div = plot(fig, output_type="div")
 
-    # return str([str(i) for i in data()])
+   
     return render_template('test.html', horizontal_div=div)
+
+
+
+"""
+
+
+def da():   
+    dc = daten.kilometer_laden()     
+
+    dc_df = pd.DataFrame.from_dict(list(dc())
+
+
+                                                 
+    
+
+
+@app.route("/te")
+
+def tt():
+    dc_df=da()
+    fig = go.Figure(go.Bar(dc_df,
+            x=["nachname"],
+            y=['kilometer'],
+            orientation='h'))
+    div = plot(fig, output_type="div")
+
+   
+    return render_template('test.html', tt_div=div)
+
+
+
+"""
+
+
 
 
 if __name__ == "__main__":
