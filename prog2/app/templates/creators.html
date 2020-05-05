@@ -1,0 +1,29 @@
+{% include "header.html" %}   
+<body>
+    
+   <div class="container_header">
+        <div class="topnav" style="height:80px;margin-left:10px;padding-top:2%;font-size:25px;">
+            <a href="{{ url_for('kilometer_speichern') }}" >Aufgabenstellung</a>
+            <a href="{{ url_for('ranking') }}">Rangliste</a>
+            <a class="active" href="{{ url_for('creators') }}"style="text-decoration:underline">Creators</a>
+        </div>
+        
+    <div class="container_logo">
+        <a href="{{ url_for('kilometer_speichern') }}"> <img src="{{url_for('static', filename='Logo.png')}}" alt="Logo" style="position:absolute;top:0px;right:50px;height:150px;width:150px;"></a>
+        <!--Quelle: Eigenkreation-->
+    </div>
+    
+    <div class="creators_note" style="font-size:20px;margin-left:10px;width:65%;">
+        <p>
+            Diese Webapplikation entstand als Teil des Moduls "Programmieren 2" an der FHGR.<br>
+            Ziel dieser Applikation ist die kürzeste Route zwischen den einzelnen Städten zu finden.<br> 
+            Gespeichert wird hierfür nebst der zusammengesetellten Distanz, der Name, unter welchem man im Ranking erscheint. 
+        </p>
+    </div>
+    
+     <div class="code_picture" style="margin-left:10px;">
+         <br><br><br>
+        <img src="{{url_for('static', filename='code_picture.jpg')}}" style="width:650px; height:auto">
+        <!--Quelle:https://unsplash.com/photos/BfrQnKBulYQ-->
+    </div>
+{% include "footer.html" %}

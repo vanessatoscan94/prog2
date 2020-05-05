@@ -1,0 +1,82 @@
+{% include "header.html" %}
+<body>
+    
+    <div class="container_header">
+        <div class="topnav" style="height:80px;margin-left:10px;padding-top:2%;font-size:25px;">
+            <a class="active" href="{{ url_for('kilometer_speichern') }}" style="text-decoration:underline">Aufgabenstellung</a>
+            <a href="{{ url_for('ranking') }}">Rangliste</a>
+            <a href="{{ url_for('creators') }}">Creators</a>
+        </div>
+        
+    <div class="container_logo">
+        <a href="{{ url_for('kilometer_speichern') }}"> <img src="{{url_for('static', filename='Logo.png')}}" alt="Logo" style="position:absolute;top:0px;right:50px;height:150px;width:150px;"></a>
+        <!--Quelle: Eigenkreation-->
+    </div>
+
+
+     <div class="anleitung" style="font-family: 'Quicksand', sans-serif; color: white; font-size:20px;margin-left:10px">
+        <p>
+            <strong>HERZLICH WILLKOMMEN</strong><br>
+       
+            <ol style="font-size:20px;color:#ffffff ">
+                <li>Bitte wählen Sie eine Aufgabe: </li> <br> <div class="dropdown_container" style="height:80px;margin-left:10px;">
+            <button onclick="myFunction()" class="dropdown_button" style="font-size:15px;color:#000000"><i class="fa fa-folder-open"></i></button>       
+            <div id="dropdown_exercises" class="drop_exer_content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+                <li>Zeichnen Sie die geforderte Strecke in der Karte ein. Das Einzeichnungs-Symbol <img src="{{url_for('static', filename='symbol.png')}}" style="width:25px; height:auto"> befindet sich oben rechts in der Karte.</li><br>
+                <li>Tragen Sie Ihr Name und die Anzahl Kilometer in das unten stehende Formular ein.</li>
+            </ol> 
+        
+
+    </div>
+    
+<!--
+    
+        <div class="dropdown_container" style="height:80px;margin-left:10px;">
+            <button onclick="myFunction()" class="dropdown_button" style="font-size:20px;color:#000000"><i class="fa fa-file"></i></button>
+            <div id="dropdown_exercises" class="drop_exer_content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+    </div>------>
+
+    <br>
+<br>
+    
+    <div class="container_map">
+      <iframe class="map", src="/map" width="100%" height="550" frameborder="0"style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" ></iframe>
+    </div>
+    
+     <div class="container_form" style="margin-left:10px">
+        <form method="POST">
+            <p for="fname"  style="font-size:20px;">Bitte geben Sie Ihr Name ein: </p>
+            <input id="fname" required type="text" name="nachname" placeholder="Ihr Name" style="font-size:20px;"> <br> <br>
+            <p for="fname" style="font-size:20px;">Bitte geben Sie die Anzahl Kilometer ein:</p>
+            <input id="text" required name="kilometer" placeholder="Anzahl Kilometer" style="font-size:20px;"> <br> <br><br>
+            <button type="submit" style="font-size:20px;">Speichern</button>
+        </form>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <div>
+
+
+
+
+        </div>
+
+
+
+{% include "footer.html" %}
