@@ -3,6 +3,7 @@ import folium
 import pandas as pd
 from flask import render_template
 from flask import request
+from flask import redirect
 import daten
 from folium import plugins
 from folium.plugins import MeasureControl
@@ -22,7 +23,47 @@ import plotly.express as px
 app = Flask(__name__)
 
 
-@app.route('/')
+
+
+    #ab hier Code zum Formular
+
+@app.route("/", methods=['GET', 'POST']) 
+def kilometer_speichern():
+    if request.method == 'POST':
+        kilometer = request.form['kilometer']
+        nachname = request.form['nachname']
+        nachname, kilometer, zeitpunkt = daten.kilometer_speichern(kilometer, nachname)
+        
+        return redirect('/ranking')
+
+    return render_template("start1.html")
+
+
+@app.route("/liste") # Zeigt nur Name und Kilometer an. funktioniert nicht
+def auflisten():
+    kilometer = daten.kilometer_laden()
+
+    kilometer_liste = ""
+    for key, value in kilometer.items():
+        zeile = str(key) + ":"  + value + "<br>"
+        kilometer_liste += zeile
+   
+
+    return kilometer_liste 
+
+
+    
+@app.route('/ranking') #gibt tabelle raus
+def ranking():
+    kilometer = daten.kilometer_laden()
+    sortiert=natsorted(kilometer.items())
+    nummeriert=enumerate(sortiert,start = 1)
+
+    
+    
+    return render_template("ranking1.html", nummeriert=nummeriert)
+
+@app.route('/karte') # speichert Eingabe von Form nicht
 def index():
     folium_map = folium.Map(
         location=[46.8667, 8.2333],
@@ -55,50 +96,12 @@ def index():
 
     
     folium_map.save('templates/map.html')
-    return render_template('start.html')
+    return render_template('start1.html')
 
 
 @app.route('/map')
 def map():
     return render_template('map.html')
-
-    #ab hier Code zum Formular
-
-@app.route("/speichern/", methods=['GET', 'POST'])
-def kilometer_speichern():
-    if request.method == 'POST':
-        kilometer = request.form['kilometer']
-        nachname = request.form['nachname']
-        nachname, kilometer, zeitpunkt = daten.kilometer_speichern(kilometer, nachname)
-        rueckgabe_string = "Gespeichert: " + nachname + " " +  kilometer + " um " + str(zeitpunkt)
-        return rueckgabe_string
-
-    return render_template("start1.html")
-
-
-@app.route("/liste") # Zeigt nur Name und Kilometer an. funktioniert nicht
-def auflisten():
-    kilometer = daten.kilometer_laden()
-
-    kilometer_liste = ""
-    for key, value in kilometer.items():
-        zeile = str(key) + ":"  + value + "<br>"
-        kilometer_liste += zeile
-   
-
-    return kilometer_liste 
-
-
-    
-@app.route('/bla') #gibt tabelle raus
-def blabla():
-    kilometer = daten.kilometer_laden()
-    sortiert=natsorted(kilometer.items())
-    nummeriert=enumerate(sortiert,start = 1)
-
-    
-    
-    return render_template("ranking1.html", nummeriert=nummeriert)
 
 
 
@@ -147,6 +150,12 @@ def horizontal():
 
    
     return render_template('test.html', horizontal_div=div)
+
+
+@app.route("/creators")
+def creators():
+
+  return render_template("creators.html")
 
 
 
