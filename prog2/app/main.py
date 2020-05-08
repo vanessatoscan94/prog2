@@ -20,6 +20,7 @@ import plotly.express as px
 
 
 
+
 app = Flask(__name__)
 
 
@@ -52,16 +53,55 @@ def auflisten():
     return kilometer_liste 
 
 
+
+def data():     #Barplot
+                                                     
+    data = daten.kilometer_laden()
+
+   
+    data_df = pd.DataFrame.from_dict(data, orient="index")
+    data_df=data_df.reset_index()
+
+    data_df.columns=["Kilometer", "Name"]
+
+    data_df=data_df.sort_values(by=["Kilometer"])
+
+
+    return data_df
+
+
+def viz():
+    data_df = data()
+
+    fig = px.bar(
+        data_df,
+        x=data_df.Kilometer, y=data_df.Name,
+        orientation='h',
+        height=400, 
+        width=800 
+
+
+    )
+
+    fig.layout.template = 'plotly_white'
+
+    
+    div = plot(fig, output_type="div")
+   
+    return div
     
 @app.route('/ranking') #gibt tabelle raus
 def ranking():
     kilometer = daten.kilometer_laden()
     sortiert=natsorted(kilometer.items())
     nummeriert=enumerate(sortiert,start = 1)
+    div = viz()
 
     
     
-    return render_template("ranking1.html", nummeriert=nummeriert)
+    return render_template("ranking1.html", nummeriert=nummeriert,viz_div=div)
+
+
 
 @app.route('/karte') # speichert Eingabe von Form nicht
 def index():
@@ -102,7 +142,7 @@ def index():
 @app.route('/map')
 def map():
     return render_template('map.html')
-
+"""
 
 
 def data():     #Barplot
@@ -135,7 +175,9 @@ def viz():
         height=400
     )
 
+    fig.write_html('templates/grafik.html')
     div = plot(fig, output_type="div")
+   
     return div
 
 
@@ -143,13 +185,12 @@ def viz():
 def test():
     div = viz()
 
-    
-  
+
    
     return render_template('ranking1.html', viz_div=div)
 
 
-"""
+
 
 @app.route("/barchart")
 def horizontal():
