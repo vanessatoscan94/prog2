@@ -105,13 +105,21 @@ def map():
 
 
 
-def data():   
+def data():     #Barplot
                                                      
     data = daten.kilometer_laden()
-   
-    data_df = pd.DataFrame.from_dict(data, orient="index")
 
    
+    data_df = pd.DataFrame.from_dict(data, orient="index")
+    data_df=data_df.reset_index()
+
+    data_df.columns=["km", "name"]
+
+    data_df=data_df.sort_values(by=["km"])
+
+    print(data_df)
+
+    print(data_df["name"])
 
     return data_df
 
@@ -121,7 +129,7 @@ def viz():
 
     fig = px.bar(
         data_df,
-        x=data_df.index, y=data_df,
+        x=data_df.km, y=data_df.name,
         orientation='h',
         
         height=400
@@ -134,11 +142,14 @@ def viz():
 @app.route("/grafik")
 def test():
     div = viz()
+
+    
+  
    
-    return render_template('test.html', viz_div=div)
+    return render_template('ranking1.html', viz_div=div)
 
 
-
+"""
 
 @app.route("/barchart")
 def horizontal():
@@ -151,7 +162,7 @@ def horizontal():
    
     return render_template('test.html', horizontal_div=div)
 
-
+"""
 @app.route("/creators")
 def creators():
 
@@ -159,35 +170,6 @@ def creators():
 
 
 
-"""
-
-
-def da():   
-    dc = daten.kilometer_laden()     
-
-    dc_df = pd.DataFrame.from_dict(list(dc())
-
-
-                                                 
-    
-
-
-@app.route("/te")
-
-def tt():
-    dc_df=da()
-    fig = go.Figure(go.Bar(dc_df,
-            x=["nachname"],
-            y=['kilometer'],
-            orientation='h'))
-    div = plot(fig, output_type="div")
-
-   
-    return render_template('test.html', tt_div=div)
-
-
-
-"""
 
 
 
