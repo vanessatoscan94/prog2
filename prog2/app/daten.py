@@ -2,7 +2,7 @@ from datetime import datetime
 import json
 
 
-def speichern(datei, key, value, nachname):
+def speichern(datei,  value, nachname):
     try:
         with open(datei) as open_file:
             datei_inhalt = json.load(open_file)
@@ -20,9 +20,9 @@ def speichern(datei, key, value, nachname):
 
 def kilometer_speichern(kilometer,nachname):
     datei_name = "ranking.json"
-    zeitpunkt = datetime.now()
-    speichern(datei_name, str(zeitpunkt), nachname, kilometer )
-    return nachname, kilometer, str(zeitpunkt)
+   
+    speichern(datei_name, nachname, kilometer )
+    return nachname, kilometer
 
 
 def kilometer_laden():
