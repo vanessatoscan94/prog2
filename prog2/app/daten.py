@@ -18,7 +18,6 @@ def speichern(datei, key, value, nachname):
     with open(datei, "w") as open_file:
         json.dump(datei_inhalt, open_file)
 
-
 def kilometer_speichern(kilometer,nachname):
     datei_name = "ranking.json"
     zeitpunkt = datetime.now()
