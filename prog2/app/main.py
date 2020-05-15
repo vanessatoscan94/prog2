@@ -39,6 +39,8 @@ def kilometer_speichern():
 
     return render_template("start1.html")
 
+"""
+
 
 @app.route("/liste") # Zeigt nur Name und Kilometer an. funktioniert nicht
 def auflisten():
@@ -52,7 +54,7 @@ def auflisten():
 
     return kilometer_liste 
 
-
+"""
 
 def data():     #Barplot
                                                      
@@ -103,7 +105,7 @@ def ranking():
 
 
 
-@app.route('/karte') # speichert Eingabe von Form nicht
+@app.route('/karte') 
 def index():
     folium_map = folium.Map(
         location=[46.8667, 8.2333],
@@ -142,68 +144,10 @@ def index():
 @app.route('/map')
 def map():
     return render_template('map.html')
-"""
-
-
-def data():     #Barplot
-                                                     
-    data = daten.kilometer_laden()
-
-   
-    data_df = pd.DataFrame.from_dict(data, orient="index")
-    data_df=data_df.reset_index()
-
-    data_df.columns=["km", "name"]
-
-    data_df=data_df.sort_values(by=["km"])
-
-    print(data_df)
-
-    print(data_df["name"])
-
-    return data_df
-
-
-def viz():
-    data_df = data()
-
-    fig = px.bar(
-        data_df,
-        x=data_df.km, y=data_df.name,
-        orientation='h',
-        
-        height=400
-    )
-
-    fig.write_html('templates/grafik.html')
-    div = plot(fig, output_type="div")
-   
-    return div
-
-
-@app.route("/grafik")
-def test():
-    div = viz()
-
-
-   
-    return render_template('ranking1.html', viz_div=div)
 
 
 
 
-@app.route("/barchart")
-def horizontal():
-    fig = go.Figure(go.Bar(
-            name=[20, 14, 23],
-            y=['giraffes', 'orangutans', 'monkeys'],
-            orientation='h'))
-    div = plot(fig, output_type="div")
-
-   
-    return render_template('test.html', horizontal_div=div)
-
-"""
 @app.route("/creators")
 def creators():
 
