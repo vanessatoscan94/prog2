@@ -33,7 +33,7 @@ def kilometer_speichern():
     if request.method == 'POST':
         kilometer = request.form['kilometer']
         nachname = request.form['nachname']
-        nachname, kilometer, zeitpunkt = daten.kilometer_speichern(kilometer, nachname)
+        nachname, kilometer = daten.kilometer_speichern(kilometer, nachname)
         
         return redirect('/ranking')
 
