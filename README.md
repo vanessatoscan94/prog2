@@ -3,18 +3,18 @@ Die Web-App soll für den Operations Research Unterricht an der FHS St.Gallen al
 
 
 **Funktion/Projektidee**   
-Der User kann aus einer Dropdown-Liste eine Aufgabe auswählen. Beispielsweise: «Verbinden Sie alle Schweizer Hauptstädte so, wie Sie das Gefühl haben, dass die Strecke am kürzesten ist.» Mittels einer Distanzmatrix kann die Distanz zwischen den Städte-Paaren berechnet werden. Für das Beispiel mit den 26 Kantonshauptstädte, umfasst die Tabelle 26 x 26 Zahlen. Die Städte werden auf der Karte vorgegeben. Sobald der Benutzer eine gültige Tour “zusammengeklickt” hat, erscheint die Länge der ganzen Tour. Es sollte möglich sein, dass der Benutzer diese Tour abspeichern und ggf. ausdrucken kann. Ausserdem soll eine High-Score-Liste erstellt werden können, die Rückmeldung darüber gibt, wer bis jetzt die kürzeste Tour zusammengeklickt hat. Es werden keine Touren optimiert. Anspruchsvolle Algorithmen sind somit nicht nötig.
+Dem User wird eine Aufgabe vorgegeben. Beispielsweise: «Verbinden Sie alle Schweizer Hauptstädte so, wie Sie das Gefühl haben, dass die Strecke am kürzesten ist.» Die Städte werden auf der Karte vorgegeben. Sobald der Benutzer eine gültige Tour “zusammengeklickt” hat, erscheint die Länge der ganzen Tour. Anschliessend erscheint in der High-Score-Liste die Anzahl Kilometer sowie die erzielte Platzierung.
 
 
 **Workflow**  
 **Dateneingabe**  
-Die Dateneingabe erfolgt durch den User, in dem er eine Route auf der Landkarte einzeichnet.   
+Die Dateneingabe erfolgt durch den User, in dem er seinen Namen und die Anzahl Kilometer in ein Form eingibt. 
 
 **Datenverarbeitung/Speicherung**  
-Mittels einer Distanzmatrix wird die Länge der eingegeben Route berechnet. Es sollen zwei verschiedene Routenberechnungen auswählbar sein. Eine die, die Strecke anhand von der Luftlinie berechnet und eine, die bspw. die LKW-Fahrzeit berechnet. Für das werden zwei verschiedene Distanzmatrizen verwendet.    
+Die eingegebenen Daten des User werden in einem Json-File gespeichert. Für das Diagramm werden die Daten vom Json-File in einem Pandas gespeichert. 
 
 **Datenausgabe**  	  
-Als Output erscheint die Länge der eingegeben Route und das Ranking.    
+Als Output erscheint die Länge der eingegeben Route und das Ranking. Ausserdem werden diese Werte auch im Diagramm angezeigt.    
 
 **Projektteam:** Flurin Böni, Vanessa Toscan
 
