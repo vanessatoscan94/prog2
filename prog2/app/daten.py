@@ -2,14 +2,14 @@ from datetime import datetime
 import json
 
 
-def speichern(datei,  value, nachname):
+def speichern(datei,  kilometer, nachname):
     try:
         with open(datei) as open_file:
             datei_inhalt = json.load(open_file)
     except FileNotFoundError:
         datei_inhalt = {}
 
-    datei_inhalt[nachname] = value  # wenn  datei_inhalt[str(key) + nachname] = value --> dann wird auch das Datum angezeigt
+    datei_inhalt[nachname] = kilometer  # wenn  datei_inhalt[str(key) + nachname] = value --> dann wird auch das Datum angezeigt
 
 
 

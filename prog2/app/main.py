@@ -66,7 +66,7 @@ def data():     #Barplot
 
     data_df.columns=["Kilometer", "Name"]
 
-    data_df=data_df.sort_values(by=["Kilometer"])
+    data_df=data_df.sort_values(by=["Kilometer"], ascending = False)
 
 
     return data_df
@@ -80,12 +80,12 @@ def viz():
         x=data_df.Kilometer, y=data_df.Name,
         orientation='h',
         height=400, 
-        width=800 
-
-
+        width=800
     )
 
     fig.layout.template = 'plotly_white'
+
+
 
     
     div = plot(fig, output_type="div")
@@ -127,11 +127,11 @@ def index():
           
   
 
-# Adds tool to the top right
+
     
     folium_map.add_child(MeasureControl())
 
-# Fairly obvious I imagine - works best with transparent backgrounds
+
    
     url = ('https://media.licdn.com/mpr/mpr/shrinknp_100_100/AAEAAQAAAAAAAAlgAAAAJGE3OTA4YTdlLTkzZjUtNDFjYy1iZThlLWQ5OTNkYzlhNzM4OQ.jpg')
     FloatImage(url, bottom=5, left=85).add_to(folium_map)
