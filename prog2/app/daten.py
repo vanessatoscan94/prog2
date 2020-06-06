@@ -1,31 +1,30 @@
-from datetime import datetime
 import json
 
 
-def speichern(datei,  kilometer, nachname):
+def speichern(datei,  kilometer, nachname): #Funktion um Einträge aus dem Formular im Json zu speichern
     try:
         with open(datei) as open_file:
             datei_inhalt = json.load(open_file)
     except FileNotFoundError:
-        datei_inhalt = {}
+        datei_inhalt = {} 
 
-    datei_inhalt[nachname] = kilometer  # wenn  datei_inhalt[str(key) + nachname] = value --> dann wird auch das Datum angezeigt
+    datei_inhalt[nachname] = kilometer  #nachname ist Key, kilometer ist value im Dictionair datei_inhalt
 
 
 
-    # print(datei_inhalt)
+    
 
     with open(datei, "w") as open_file:
         json.dump(datei_inhalt, open_file)
 
-def kilometer_speichern(kilometer,nachname):
+def kilometer_speichern(kilometer,nachname): #Angaben der Variablen, die im Json gespeichert werden sollen
     datei_name = "ranking.json"
    
     speichern(datei_name, nachname, kilometer )
     return nachname, kilometer
 
 
-def kilometer_laden():
+def kilometer_laden():  #Anzeigen der gespeicherten Werte im Json
     datei_name = "ranking.json"
 
     try:
@@ -41,7 +40,7 @@ def kilometer_laden():
 
 
 
-    # print(datei_inhalt)
+   
 
     with open(datei, "w") as open_file:
         json.dump(datei_inhalt, open_file)
