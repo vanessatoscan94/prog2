@@ -3,14 +3,14 @@
     
     <div class="container_header">
         <div class="topnav" style="height:80px;margin-left:10px;padding-top:2%;font-size:25px;">
-            <a class="active" href="{{ url_for('kilometer_speichern') }}" style="text-decoration:underline">Aufgabenstellung</a>
-            <a href="{{ url_for('ranking') }}">Rangliste</a>
-            <a href="{{ url_for('creators') }}">Creators</a>
+            <a class="active" href="{{ url_for('kilometer_speichern') }}" style="text-decoration:underline">Aufgabenstellung</a> <!--Verlinkung Navigation mit der Seite mit dem Formular-->
+            <a href="{{ url_for('ranking') }}">Rangliste</a> <!--Verlinkung Navigation mit der Seite Rangliste-->
+            <a href="{{ url_for('creators') }}">Creators</a> <!--Verlinkung Navigation mit der Seite Creators-->
         </div>
         
     <div class="container_logo">
         <a href="{{ url_for('kilometer_speichern') }}"> <img src="{{url_for('static', filename='Logo.png')}}" alt="Logo" style="position:absolute;top:0px;right:50px;height:150px;width:150px;"></a>
-        <!--Quelle: Eigenkreation-->
+        <!---Wenn man auf das Logo klickt, kehrt man auf die Startseite zurück-->
     </div>
 
 
@@ -38,7 +38,7 @@
 
     <br>
 <br>
-    
+    <!--Einfügen der Map-->
     <div class="container_map">
       <iframe class="map", src="/map" width="100%" height="550" frameborder="0"style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" ></iframe>
     </div>
@@ -46,9 +46,9 @@
      <div class="container_form" style="margin-left:10px">
         <form method="POST">
             <p for="fname"  style="font-size:20px;">Bitte geben Sie Ihr Name ein: </p>
-            <input id="fname" required type="text" name="nachname" placeholder="Ihr Name" style="font-size:20px;"> <br> <br>
+            <input id="fname" required type="text" name="nachname" placeholder="Ihr Name" style="font-size:20px;"> <br> <br> <!--requiered stellt sicher, dass ohne Eintrag nicht fortgefahren werden kann-->
             <p for="fname" style="font-size:20px;">Bitte geben Sie die Anzahl Kilometer ein:</p>
-            <input id="text" required type="number" step="0.001" name="kilometer" placeholder="Anzahl Kilometer" style="font-size:20px;"> <a style="font-size:20px;color:#ffffff ">Kilometer</a> <br> <br><br>
+            <input id="text" required type="number" step="0.001" name="kilometer" placeholder="Anzahl Kilometer" style="font-size:20px;"> <a style="font-size:20px;color:#ffffff ">Kilometer</a> <br> <br><br> <!--Stellt sicher, dass nur Zahlen eingegeben werden können und ein Eintrag erforderlich ist-->
             <button type="submit" style="font-size:20px;">Speichern</button>
         </form>
     </div>
@@ -64,4 +64,4 @@
 
 
 
-{% include "footer.html" %}
+{% include "footer.html" %} <!--Einfügen Footer-->
