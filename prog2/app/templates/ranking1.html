@@ -5,22 +5,25 @@
         <div class="topnav" style="height:80px;margin-left:10px;padding-top:2%;font-size:25px;">
             <a href="{{ url_for('kilometer_speichern') }}" >Aufgabenstellung</a>
             <a class="active" href="{{ url_for('ranking') }}"style="text-decoration:underline">Rangliste</a>
-            <a href="{{ url_for('creators') }}">Creators</a>
+            <a href="{{ url_for('creators') }}">Creators</a> 
         </div>
         
     <div class="container_logo">
         <a href="{{ url_for('kilometer_speichern') }}"> <img src="{{url_for('static', filename='Logo.png')}}" alt="Logo" style="position:absolute;top:0px;right:50px;height:150px;width:150px;"></a>
-        <!--Quelle: Eigenkreation-->
+       <!---Wenn man auf das Logo klickt, kehrt man auf die Startseite zurück-->
     </div>
 
-<p><table class="centered thick-border" style="font-family: 'Quicksand', sans-serif; color: white; font-size:20px;margin-left:10px;width:65%;">
+<p><table class="centered thick-border" style="font-family: 'Quicksand', sans-serif; color: white; font-size:20px;margin-left:10px;width:65%;"> 
         <tr>
         <tr>
                 
                 <th ALIGN="LEFT" style="text-decoration:underline">Rang</th>
                 <th ALIGN="LEFT" style="text-decoration:underline">Name</th>
                  <th ALIGN="LEFT" style="text-decoration:underline">Anzahl Kilometer</th>
-        </tr>
+        </tr> <!---ERstellen der Tabelle für Ranking-->
+
+
+
         {% for i, (n, p) in nummeriert%} <!--(n, p) bedeutet, dass enumerate durch keys and values<-->
 
             <tr>
@@ -43,7 +46,7 @@
 
  <div class="container_chart" style="margin-left:20px">
     
-{{ viz_div|safe }}
+{{ viz_div|safe }} <!---Einfügen Diagramm-->
 
 
 </div>
